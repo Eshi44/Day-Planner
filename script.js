@@ -26,7 +26,7 @@ $(document).ready(function() {
     "9AM",
     "10AM",
     "11AM",
-    "12PM",
+    "12AM",
     "1PM",
     "2PM",
     "3PM",
@@ -40,8 +40,68 @@ $(document).ready(function() {
   for (var i = 0; i < timeOfDay.length; i++) {
     //console.log(timeOfDay);
     hoursRows[i].innerHTML = timeOfDay[i];
+
+    if(timeOfDay[i] == "12AM")
+    hoursRows[i].innerHTML = "12PM";
+
     description = JSON.parse(localStorage.getItem(timeOfDay[i]));
     if (description) textRows[i].innerHTML = description;
+
+    var presentTime = moment().format("LT");
+
+    var newTime = presentTime.split(":")[0] + presentTime.split(" ")[1];
+
+    var hourFormat = parseInt(presentTime.split(":")[0]);
+
+    if (presentTime.split(" ")[1] == "PM") {
+      // console.log(hourFormat);
+      // console.log("ADDING TIME");
+      hourFormat += 12;
+      // console.log(hourFormat);
+    }
+    // console.log(newTime);
+
+    // console.log(timeOfDay[i].split(":")[0]);
+    //   console.log(hourFormat);
+
+    var compareTime = timeOfDay[i];
+    console.log(compareTime);
+    if (compareTime.length == 3) compareTime = compareTime.substring(0, 1);
+    else compareTime = compareTime.substring(0, 2);
+
+    var numCompareTime = parseInt(compareTime);
+
+    console.log(presentTime.split(" ")[1]);
+
+    console.log("MY SLOPPY HACK" + " " + timeOfDay[i].substr(-2));
+    if (timeOfDay[i].substr(-2) == "PM") {
+      numCompareTime += 12;
+    }
+
+    console.log(numCompareTime);
+    console.log(hourFormat);
+
+    // console.log(presentTime);
+    if (timeOfDay[i] == newTime) {
+      console.log("IT'S TIME");
+      textRows[i].setAttribute(
+        "style",
+        "background-color: #ff6961",
+        "important"
+      );
+    } else if (numCompareTime < hourFormat) {
+      textRows[i].setAttribute(
+        "style",
+        "background-color: #d3d3d3",
+        "important"
+      );
+    } else {
+      textRows[i].setAttribute(
+        "style",
+        "background-color: #77dd77",
+        "important"
+      );
+    }
   }
 
   //create on click event so that when button is clicked,
