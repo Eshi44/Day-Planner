@@ -1,15 +1,9 @@
-//Check to make sure the relative path in our html file works
-//console.log("Hello World");
-//Use the ready() method and test via console.log
+//use the ready() method and test via console.log
 $(document).ready(function() {
-  console.log("Hello World");
+  // console.log("Hello World");
+
+  //use moment.js to display the current date to the webpage
+  var current = moment().format("dddd, MMMM Do");
+  console.log(current);
+  $("#currentDay").append(current);
 });
-//
-//
-//
-//
-//
-//
-//
-//
-//
