@@ -8,9 +8,10 @@ Using the third party API Moment.js, a user can mangae their time on a simple ca
 ```
 Markup :
 
-*AS AN employee with a busy schedule
-*I WANT to add important events to a daily planner
-*SO THAT I can manage my time effectively
+- AS AN employee with a busy schedule
+- I WANT to add important events to a daily planner
+- SO THAT I can manage my time effectively
+  - h
 
 ```
 ## Acceptance Criteria
