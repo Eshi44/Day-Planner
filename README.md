@@ -3,8 +3,10 @@ Using the third party API Moment.js, a user can mangae their time on a simple ca
 
 ![](/images/Work-Day-Scheduler.PNG)
 
+```
 ## User Story
-
+```
+Markup :
 
 *AS AN employee with a busy schedule
 *I WANT to add important events to a daily planner
